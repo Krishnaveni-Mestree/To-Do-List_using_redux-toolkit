@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTodo } from '../features/TodoList/todoSlice';
+import { deleteTodo, updateTodo } from '../features/TodoList/todoSlice';
 
 function TodoList() {
     const todos=useSelector((state)=>state.todos)
@@ -45,7 +45,7 @@ function TodoList() {
                         </>
                     )
                 }
-                <button>Delete</button>
+                <button onClick={()=>dispatch(deleteTodo(todo.id))}>Delete</button>
             </div>
         ))
       }

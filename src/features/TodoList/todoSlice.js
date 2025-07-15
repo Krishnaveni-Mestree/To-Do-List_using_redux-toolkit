@@ -16,7 +16,9 @@ const todosSlice=createSlice({
                 todo.text=newText
             }
         },
-        deleteTodo:(state,action)=>{},
+        deleteTodo:(state,action)=>{
+            return state.filter((todo)=>todo.id!==action.payload)
+        },
         deleteAllTodo:()=>{}
     }
 })
