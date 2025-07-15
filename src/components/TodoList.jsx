@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateTodo } from '../features/TodoList/todoSlice';
 
 function TodoList() {
     const todos=useSelector((state)=>state.todos)
-    console.log(todos)
+    
     const [editId,setEditId]=useState(null);
     const [editText,setEditText]=useState('');
+    console.log(todos)
+    const dispatch=useDispatch();
 
     const handleEditClick=(id,currentText)=>{
         setEditId(id);
         setEditText(currentText)
     }
 
+    const handleSaveClick=(id)=>{
+        dispatch(updateTodo({id,newText:editText}))
+        setEditId(null);
+        setEditText('');
+    }
+
   return (
     <div className="container">
-        {editId}{editText}
       {
         todos.map((todo)=>(
             <div className="task-item" key={todo.id}>
@@ -27,7 +35,7 @@ function TodoList() {
                                 value={editText}
                                 onChange={(e)=>setEditText(e.target.value)}
                             />
-                            <button>Save</button>
+                            <button onClick={()=>handleSaveClick(todo.id)}>Save</button>
                         </>
                     ) :
                     (
