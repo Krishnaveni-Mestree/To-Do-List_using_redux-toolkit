@@ -1,13 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function TodoList() {
+    const todos=useSelector((state)=>state.todos)
+    console.log(todos)
   return (
     <div className="container">
-      <div className="task-item">
-        <span>Pack bag</span>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
+      {
+        todos.map((todo)=>(
+            <div className="task-item" key={todo.id}>
+                <span>{todo.text}</span>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+        ))
+      }
     </div>
   );
 }
