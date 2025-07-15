@@ -6,8 +6,10 @@ function AddTodo() {
   const [task, setTask] = useState('');
   const dispatch=useDispatch();
   const handleAddTask=()=>{
-    dispatch(addTodo(task));
-    setTask('');
+    if(task.trim()){   //we will return a new string with white-spaces removed from both the end
+        dispatch(addTodo(task));
+        setTask('');
+    }
   }
 
   return (
