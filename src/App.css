@@ -1,30 +1,111 @@
-.todo-item span{
+/* Base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input group for AddTodo */
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.input-group input {
   flex: 1;
-  color: #f1f1f1;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
-.todo-item input{
-  flex:1;
-  padding:8px;
-  border-radius: 4px;
-  border: 1px solid #444;
-  background-color: #2d2d2d;
-  color: #f1f1f1;
+.input-group button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
 }
 
-.todo-item button{
-  margin-left: 8px;
-  padding: 6px 10px;
-  border:none;
-  border-radius: 4px;
-  cursor:pointer;
-  color:#f1f1f1;
+.input-group button:first-of-type {
+  background-color: #3b82f6; /* Add Task - Blue */
 }
 
-.todo-item button:first-of-type{
-  background-color: #3498db;
+.input-group button:first-of-type:hover {
+  background-color: #2563eb;
 }
 
-.todo-item .delete-btn{
-  background-color: #e74c3c;
+.input-group .delete-all {
+  background-color: #ef4444; /* Red */
+}
+
+.input-group .delete-all:hover {
+  background-color: #dc2626;
+}
+
+/* Container for task list */
+.container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Individual task item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.task-item span {
+  font-size: 1rem;
+  flex: 1;
+  color: black;
+}
+
+.task-item button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.task-item button:first-of-type {
+  background-color: #f59e0b; /* Edit - Amber */
+}
+
+.task-item button:first-of-type:hover {
+  background-color: #d97706;
+}
+
+.task-item button:last-of-type {
+  background-color: #ef4444; /* Delete - Red */
+}
+
+.task-item button:last-of-type:hover {
+  background-color: #dc2626;
 }
