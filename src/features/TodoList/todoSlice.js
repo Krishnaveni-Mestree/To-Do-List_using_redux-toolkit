@@ -19,7 +19,7 @@ const todosSlice=createSlice({
         deleteTodo:(state,action)=>{
             return state.filter((todo)=>todo.id!==action.payload)
         },
-        deleteAllTodo:()=>{}
+        deleteAllTodo:()=>[]    //empty array
     }
 })
 
